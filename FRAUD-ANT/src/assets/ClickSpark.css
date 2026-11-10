@@ -1,0 +1,59 @@
+
+.click-spark-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.click-spark-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.click-spark-burst {
+  position: fixed;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.click-spark-particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 12px;
+  border-radius: 999px;
+  transform-origin: center;
+
+  animation: click-spark-animation 650ms
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes click-spark-animation {
+  0% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(0)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-32px)
+      scale(0.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .click-spark-particle {
+    animation-duration: 1ms;
+  }
+}

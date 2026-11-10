@@ -1,0 +1,158 @@
+@import "tailwindcss";
+/* =========================================
+   FRAUD-ANT GREEN YELLOW THEME
+========================================= */
+
+:root {
+  --fraud-primary: #14532D;
+  --fraud-green: #22C55E;
+  --fraud-yellow: #FACC15;
+  --fraud-cream: #FEFCE8;
+  --fraud-mint: #DCFCE7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #FEFCE8;
+  color: #172B1C;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: #FACC15;
+  color: #14532D;
+}
+
+/* =========================================
+   FLOATING BACKGROUND ANIMATION
+========================================= */
+
+@keyframes fraudFloatOne {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(35px, 25px, 0) scale(1.08);
+  }
+}
+
+@keyframes fraudFloatTwo {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-30px, 35px, 0) scale(1.1);
+  }
+}
+
+@keyframes fraudFloatThree {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(20px, -25px, 0);
+  }
+}
+
+@keyframes fraudGlow {
+  0%, 100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes fraudDots {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 28px 28px;
+  }
+}
+
+/* =========================================
+   BACKGROUND BLOBS
+========================================= */
+
+.fraud-blob-yellow {
+  animation:
+    fraudFloatOne 20s ease-in-out infinite,
+    fraudGlow 10s ease-in-out infinite;
+}
+
+.fraud-blob-green {
+  animation: fraudFloatTwo 23s ease-in-out infinite;
+}
+
+.fraud-blob-lime {
+  animation: fraudFloatThree 19s ease-in-out infinite;
+}
+
+.fraud-blob-gold {
+  animation: fraudFloatTwo 25s ease-in-out infinite;
+}
+
+.fraud-blob-bottom {
+  animation: fraudFloatOne 22s ease-in-out infinite;
+}
+
+/* =========================================
+   MOVING DOTS
+========================================= */
+
+.fraud-dots {
+  animation: fraudDots 45s linear infinite;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FEFCE8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #86C99A;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #14532D;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

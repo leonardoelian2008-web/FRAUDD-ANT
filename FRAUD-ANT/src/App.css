@@ -1,0 +1,401 @@
+
+@import "tailwindcss";
+
+/* =========================================
+   FRAUD-ANT — MAIN STYLING
+========================================= */
+
+:root {
+  --fraud-primary: #14532D;
+  --fraud-green: #15803D;
+  --fraud-light: #DCFCE7;
+  --fraud-yellow: #FACC15;
+  --fraud-cream: #FEFCE8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =========================================
+   BACKGROUND ANIMATION
+========================================= */
+
+.fraud-app {
+  isolation: isolate;
+}
+
+.fraud-blob {
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.fraud-blob-yellow {
+  animation: fraudFloatOne 20s ease-in-out infinite,
+             fraudGlow 10s ease-in-out infinite;
+}
+
+.fraud-blob-green {
+  animation: fraudFloatTwo 23s ease-in-out infinite;
+}
+
+.fraud-blob-lime {
+  animation: fraudFloatThree 19s ease-in-out infinite;
+}
+
+.fraud-blob-gold {
+  animation: fraudFloatTwo 25s ease-in-out infinite;
+}
+
+.fraud-blob-bottom {
+  animation: fraudFloatOne 22s ease-in-out infinite;
+}
+
+.fraud-dots {
+  animation: fraudDots 45s linear infinite;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fraudFloatOne {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(35px, 25px, 0) scale(1.08);
+  }
+}
+
+@keyframes fraudFloatTwo {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-30px, 35px, 0) scale(1.1);
+  }
+}
+
+@keyframes fraudFloatThree {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(20px, -25px, 0);
+  }
+}
+
+@keyframes fraudGlow {
+  0%, 100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes fraudDots {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 28px 28px;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease-out both;
+}
+
+/* =========================================
+   TRAPSCAN UPLOAD
+========================================= */
+
+#trapscan-upload {
+  display: none;
+}
+
+#trapscan label[for="trapscan-upload"] {
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#trapscan label[for="trapscan-upload"]:hover {
+  background-color: #F0FDF4;
+  border-color: #15803D;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   TRAPSCAN ANALYSIS BUTTON
+========================================= */
+
+#trapscan button[type="button"] {
+  width: 100% !important;
+  min-height: 60px !important;
+  padding: 16px 24px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+
+  border: 1px solid #166534 !important;
+  border-radius: 14px !important;
+
+  background: linear-gradient(
+    135deg,
+    #166534,
+    #15803D
+  ) !important;
+
+  color: #FFFFFF !important;
+
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+
+  box-shadow: 0 8px 18px rgba(22, 101, 52, 0.18) !important;
+
+  transition: all 0.25s ease !important;
+}
+
+#trapscan button[type="button"]:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    #14532D,
+    #16A34A
+  ) !important;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 24px rgba(22, 101, 52, 0.25) !important;
+}
+
+#trapscan button[type="button"]:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+#trapscan button[type="button"]:disabled {
+  background: #DCFCE7 !important;
+  border-color: #86EFAC !important;
+  color: #166534 !important;
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+:focus-visible {
+  outline: 3px solid #FACC15;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #FACC15;
+  color: #14532D;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FEFCE8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #86C99A;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #14532D;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 640px) {
+  #trapscan {
+    padding: 22px !important;
+    border-radius: 22px !important;
+  }
+
+  #trapscan button[type="button"] {
+    font-size: 14px !important;
+    min-height: 56px !important;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================
+   FRAUD-ANT — TRAPLINK BUTTON FIX
+========================================= */
+
+#traplink > button:first-of-type {
+  display: flex !important;
+  width: 100% !important;
+  min-height: 60px !important;
+  padding: 16px 24px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+
+  background: linear-gradient(
+    135deg,
+    #166534 0%,
+    #15803d 100%
+  ) !important;
+
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  border: 1px solid #166534 !important;
+  border-radius: 14px !important;
+
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  cursor: pointer !important;
+
+  box-shadow: 0 8px 18px rgba(22, 101, 52, 0.18) !important;
+
+  transition: all 0.25s ease !important;
+}
+
+#traplink > button:first-of-type:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    #14532d,
+    #16a34a
+  ) !important;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 24px rgba(22, 101, 52, 0.25) !important;
+}
+
+#traplink > button:first-of-type:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+#traplink > button:first-of-type:disabled {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+  -webkit-text-fill-color: #166534 !important;
+  border-color: #86efac !important;
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+#traplink > button:first-of-type span {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* INPUT URL */
+#traplink input {
+  width: 100%;
+  min-height: 54px;
+  color: #1e293b !important;
+  background-color: #f0fdf4 !important;
+  border: 1px solid #bbf7d0 !important;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+}
+
+#traplink input:focus {
+  outline: none;
+  border-color: #15803d !important;
+  box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.12);
+}
+
+#traplink input::placeholder {
+  color: #94a3b8;
+}
+
+/* KEMBALI KE BERANDA */
+#traplink > button:last-of-type {
+  background: transparent !important;
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+  border: none !important;
+  box-shadow: none !important;
+  min-height: 40px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+}
+
+#traplink > button:last-of-type:hover {
+  color: #15803d !important;
+}
